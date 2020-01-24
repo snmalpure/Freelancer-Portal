@@ -7,3 +7,38 @@
 .containerSlide img {
   height: 450px;
 }
+
+.info h1 {
+  color: white;
+  padding-top: 100px;
+  text-align: center;
+  font-size: 50px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.info h5 {
+  color: white;
+  text-align: center;
+  font-size: 25px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  padding-bottom: 40px;
+}
+
+.hire button {
+  color: white;
+  width: 200px;
+  height: 70px;
+  background-color: darkorange;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 25px;
+}
+
+.work button {
+  color: white;
+  width: 200px;
+  height: 70px;
+  margin: 50px;
+  border-width: 3px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 25px;
+}

@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import download from "../images/download.png";
 import { Link } from "react-router-dom";
+import Ripples from "react-ripples";
+import login from "./login";
+import signup from "./signup";
 
 class Navbar extends Component {
   render() {
@@ -49,16 +52,29 @@ class Navbar extends Component {
             </li>
           </ul>
           <ul className="navbar-nav mr-auto">
-            <li className="nav-item">
-              <Link to="/login" className="nav-link">
-                Log In
-              </Link>
+            <li>
+              <Ripples color="#fff" during={1200}>
+                <button
+                  type="button"
+                  className="btn btn-outline-primary"
+                  onClick={login}
+                >
+                  Log In
+                </button>
+              </Ripples>
             </li>
-
-            <li className="nav-item">
-              <Link to="/signup" className="nav-link">
-                Sign Up
-              </Link>
+          </ul>
+          <ul className="navbar-nav mr-auto">
+            <li>
+              <Ripples color="#fff" during={1200}>
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={signup}
+                >
+                  Sign Up
+                </button>
+              </Ripples>
             </li>
           </ul>
           <form className="form-inline my-2 my-lg-0">
