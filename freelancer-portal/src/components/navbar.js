@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Ripples from "react-ripples";
 import login from "./login";
 import signup from "./signup";
+import post_project from "./post_project";
 
 class Navbar extends Component {
   render() {
@@ -51,6 +52,31 @@ class Navbar extends Component {
               </Link>
             </li>
           </ul>
+
+          {/* <ul className="navbar-nav mr-auto">
+            <li>
+              <Ripples color="#fff" during={1200}>
+                <button
+                  type="button"
+                  className="btn btn-outline-primary"
+                  onClick={post_project}
+                >
+                  Post Project
+                </button>
+              </Ripples>
+            </li>
+          </ul> */}
+
+          <ul className="navbar-nav mr-auto">
+            <li className="nav-item">
+              <Ripples color="#fff" during={1200}>
+                <Link to="/post_project" className="btn btn-outline-primary">
+                  Post Job / Project
+              </Link>
+              </Ripples>
+            </li>
+          </ul>
+
           <ul className="navbar-nav mr-auto">
             <li>
               <Ripples color="#fff" during={1200}>
@@ -64,6 +90,7 @@ class Navbar extends Component {
               </Ripples>
             </li>
           </ul>
+
           <ul className="navbar-nav mr-auto">
             <li>
               <Ripples color="#fff" during={1200}>

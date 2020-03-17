@@ -11,6 +11,8 @@ import About from "./components/about";
 import Login from "./components/login";
 import Signup from "./components/signup";
 import Counter from "./components/counter";
+import PostProject from "./components/post_project";
+import axios from 'axios';
 
 function App() {
   return (
@@ -27,6 +29,7 @@ function App() {
           <Route path="/signup" component={Signup} />
           <Route path="/about" component={About} />
           <Route path="/counter" component={Counter} />
+          <Route path="/post_project" component={PostProject} />
         </Switch>
 
         {/*} <Greet name="Alex">
