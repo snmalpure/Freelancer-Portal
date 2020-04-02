@@ -12,6 +12,7 @@ import Login from "./components/login";
 import Signup from "./components/signup";
 import Counter from "./components/counter";
 import PostProject from "./components/post_project";
+import PostJob from "./components/post_job";
 import axios from 'axios';
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <Route path="/about" component={About} />
           <Route path="/counter" component={Counter} />
           <Route path="/post_project" component={PostProject} />
+          <Route path="/post_job" component={PostJob} />
         </Switch>
 
         {/*} <Greet name="Alex">

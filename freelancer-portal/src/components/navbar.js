@@ -71,7 +71,17 @@ class Navbar extends Component {
             <li className="nav-item">
               <Ripples color="#fff" during={1200}>
                 <Link to="/post_project" className="btn btn-outline-primary">
-                  Post Job / Project
+                  Post Projects
+              </Link>
+              </Ripples>
+            </li>
+          </ul>
+
+          <ul className="navbar-nav mr-auto">
+            <li className="nav-item">
+              <Ripples color="#fff" during={1200}>
+                <Link to="/post_job" className="btn btn-outline-primary">
+                  Post Job
               </Link>
               </Ripples>
             </li>

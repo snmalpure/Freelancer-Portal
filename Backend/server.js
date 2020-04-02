@@ -1,60 +1,71 @@
-var express = require("express");
-var bodyParser = require("body-parser");
-
+const express = require("express");
+const bodyParser = require("body-parser");
+const app = express();
+const cors = require('cors');
+const freelanceRoutes = express.Router();
+const PORT = 4000;
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/freelance');
-var db = mongoose.connection;
-db.on('error', console.log.bind(console, "connection error"));
-db.once('open', function (callback) {
-    console.log("connection succeeded");
-})
 
-var app = express()
+let freelance_proj = require('./freelance_proj.model');
+let freelance_job = require('./freelance_job.model');
 
-
+app.use(cors());
 app.use(bodyParser.json());
-app.use(express.static(__dirname));
-// app.use(express.static('public'));
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
 
-app.post('/PostJob', function (req, res) {
-    var name = req.body.title;
-    var details = req.body.details;
-    // var pass = req.body.password;
-    // var phone = req.body.phone;
+mongoose.connect('mongodb://127.0.0.1:27017/freelance_db', { useUnifiedTopology: true, useNewUrlParser: true });
+const connection = mongoose.connection;
 
-    var data = {
-        "name": name,
-        "details": details
-        // "password": pass,
-        // "phone": phone
-    }
+connection.once('open', function () {
+    console.log("MongoDB connection established successfully !");
+});
+connection.once('error', console.log.bind(console, "connection error"));
 
-    if (req.body.radio == "val2") {
-        db.collection('jobs').insertOne(data, function (err, collection) {
-            if (err) throw err;
-            console.log("Record inserted Successfully");
+freelanceRoutes.route('/add_proj').post(function (req, res) {
+    let proj = new freelance_proj(req.body);
+    proj.save()
+        .then(todo => {
+            res.status(200).json({ 'proj': 'proj added successfully' });
+        })
+        .catch(err => {
+            res.status(400).send('adding proj failed');
         });
-    }
+});
 
-    if (req.body.radio == "val1") {
-        db.collection('projects').insertOne(data, function (err, collection) {
-            if (err) throw err;
-            console.log("Record inserted Successfully");
+freelanceRoutes.route('/add_job').post(function (req, res) {
+    let job = new freelance_job(req.body);
+    job.save()
+        .then(todo => {
+            res.status(200).json({ 'job': 'job added successfully' });
+        })
+        .catch(err => {
+            res.status(400).send('adding job failed');
         });
-    }
+});
 
-    return res.redirect('src/App.js');
-})
-
-
-app.get('/', function (req, res) {
-    res.set({
-        'Access-control-Allow-Origin': '*'
+freelanceRoutes.route('/jobs').get(function (req, res) {
+    freelance_job.find(function (err, jobs) {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            res.json(jobs);
+        }
     });
-    return res.redirect('src/App.js');
-}).listen(3000);
+});
 
-console.log("server listening at port 3000");
+freelanceRoutes.route('/projects').get(function (req, res) {
+    freelance_job.find(function (err, projects) {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            res.json(projects);
+        }
+    });
+});
+
+app.use('/freelance_db', freelanceRoutes);
+
+app.listen(PORT, function () {
+    console.log("Server is running on port " + PORT)
+});
