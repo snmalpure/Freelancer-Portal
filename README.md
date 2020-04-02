@@ -7,15 +7,11 @@ Apart from common freelancing sites, we also provide option for posting projects
 
 # Setup 
 
-Start Frontend
-
 ## Frontend (Open new terminal)
 
-1. cd to freelance-portal
+1. cd to freelancer-portal
 2. npm install
 3. npm start
-
-Start backend
 
 ## Backend (Open new terminal)
 
