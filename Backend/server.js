@@ -54,7 +54,7 @@ freelanceRoutes.route('/jobs').get(function (req, res) {
 });
 
 freelanceRoutes.route('/projects').get(function (req, res) {
-    freelance_job.find(function (err, projects) {
+    freelance_proj.find(function (err, projects) {
         if (err) {
             console.log(err);
         }
