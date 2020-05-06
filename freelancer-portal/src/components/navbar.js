@@ -71,8 +71,8 @@ class Navbar extends Component {
             <li className="nav-item">
               <Ripples color="#fff" during={1200}>
                 <Link to="/post_project" className="btn btn-outline-primary">
-                  Post Projects
-              </Link>
+                  Post Project
+                </Link>
               </Ripples>
             </li>
           </ul>
@@ -82,7 +82,7 @@ class Navbar extends Component {
               <Ripples color="#fff" during={1200}>
                 <Link to="/post_job" className="btn btn-outline-primary">
                   Post Job
-              </Link>
+                </Link>
               </Ripples>
             </li>
           </ul>
@@ -90,14 +90,13 @@ class Navbar extends Component {
           <ul className="navbar-nav mr-auto">
             <li>
               <Ripples color="#fff" during={1200}>
-                <Link to="/login" >
                 <button
                   type="button"
                   className="btn btn-outline-primary"
+                  onClick={login}
                 >
                   Log In
                 </button>
-                </Link>
               </Ripples>
             </li>
           </ul>
@@ -105,14 +104,13 @@ class Navbar extends Component {
           <ul className="navbar-nav mr-auto">
             <li>
               <Ripples color="#fff" during={1200}>
-                <Link to="/signup">
                 <button
                   type="button"
                   className="btn btn-primary"
+                  onClick={signup}
                 >
                   Sign Up
                 </button>
-                </Link>
               </Ripples>
             </li>
           </ul>
